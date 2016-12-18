@@ -23,11 +23,11 @@ gem 'pg'
 gem 'simple_form'
 group :development do
   gem 'better_errors'
-  gem 'capistrano', '~> 3.0.1'
+  gem 'capistrano'
   gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-rails'
   gem 'capistrano-rails-console'
-  gem 'capistrano-rvm', '~> 0.1.1'
+  gem 'capistrano-rvm'
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -49,7 +49,7 @@ group :development, :test do
   gem 'thin'
 end
 group :production do
-  gem 'unicorn'
+  gem 'passenger'
 end
 group :test do
   gem 'capybara'
