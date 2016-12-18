@@ -1,0 +1,94 @@
+<div id="centered">
+        <div id="header">
+    <a href="/"><img src="assets/logo.gif" alt="" class="floatleft"></a>
+    <ul id="navigation">
+                                        <li><a href="/">Home</a></li>
+                    <li><a href="about-us">About us</a></li>
+                    <li><a href="maps">Maps</a></li>
+                    <li><a href="plant-list">Plant List</a></li>
+                    <li class="active"><a href="contact">Contact us</a></li>
+    </ul>
+  </div>
+        <div id="two-col" class="border">
+    <div id="left">
+        <div id="blog">
+            <div class="post">
+                <h2 class="green">Flowerdale Nursery</h2>
+                <div><span class="bold">Postal:</span> <span>242 Robin Hill Road Flowerdale, TAS 7325</span></div>
+                <div><span class="bold">Main Phone:</span> <span>(03) 6442 4833 (9-4pm 7 days/week)</span></div>
+                <div><span class="bold">Main Fax:</span> <span>(03) 6442 2025</span></div>
+                <div><span class="bold">Email:</span> <span class="email">redbreast.plants<img class="at_symbol" src="/assets/at.png" width="13" height="12" alt="at">gmail.com</span></div>
+            </div>
+
+            <div class="post">
+                <h2 class="green">Margate Nursery</h2>
+                <div><span class="bold">Postal:</span> <span>1709 Channel Hwy, Margate, TAS 7054</span></div>
+                <div><span class="bold">Main Phone:</span> <span>(03) 6267 2871 (9-4pm 7 days/week)</span></div>
+                <div><span class="bold">Main Fax:</span> <span>(03) 6267 1077</span></div>
+                <div><span class="bold">Email:</span> <span class="email">margate.redbreast<img class="at_symbol" src="/assets/at.png" width="13" height="12" alt="at">gmail.com</span></div>
+            </div>
+
+            <div class="post">
+                <h2 class="green">Max Roberts</h2>
+                <div><span class="italic">Statewide Nursery Manager and co-owner</span></div>
+                <div><span class="bold">Mobile:</span> <span>04 1987 1784</span></div>
+            </div>
+        </div>
+    </div>
+    <div id="right">
+        <div id="contactPage" class="box1">
+            <h2 class="centered" style="font-variant:small-caps;width:100%;text-align: center;display:block;font-size:1.2em;">Contact Us</h2>
+
+            <form id="contform" name="contform" action="spamignore" method="post">
+            <table>
+                        <tr><td align="right" width="37%">Your Name:&nbsp;</td>
+                <td align="left">
+                    <input type="text" name="name" class="contact_input" style="" value="">
+                </td>
+            </tr>
+            <tr><td align="right">Your Email:&nbsp;</td>
+                <td align="left">
+                    <input type="text" class="contact_input" name="email" style="" value="">
+                </td>
+            </tr>
+            <tr><td align="right">Your Website:&nbsp;</td>
+                <td align="left">
+                    <input type="text" class="contact_input" name="website" value="">
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top" style="vertical-align:top">Your Message:&nbsp;</td>
+                <td align="left">
+                    <textarea name="message" class="contact_input" style="width: 155px; height: 80px;"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td align="left">
+                    <input type="hidden" name="sendtest" value="1">
+                    <a style="margin:0 0 0 70px" href="javascript:submitContact()" alt="Send Message" class="btn">Send Message</a>
+                </td>
+            </tr>
+            </table>
+            </form>
+
+        </div>
+        <div class="box1"><div><img src="/assets/DSC_2845small.jpg"  alt="taking the weeds from the young plants"></div></div>
+        <div class="box1"><div><img src="/assets/DSC_2831small.jpg"  alt="firming the dirt around the plant"></div></div>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function()
+{
+    $('.at_symbol').replaceWith('@');
+    $('.email').each(function()
+    {
+            $(this).html('<a class="email" href="mailto:'+$(this).html()+'">'+$(this).html()+'</a>');
+    });
+});
+function submitContact()
+{
+    $('#contform').attr('action','contact'); //update action to the real one
+    $('#contform').submit();
+}
+</script>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'about-us' => 'visitors#about'
+  get 'maps' => 'visitors#maps'
+  get 'plant-list' => 'visitors#plantlist'
+  get 'contact' => 'visitors#contact'
   root to: 'visitors#index'
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin

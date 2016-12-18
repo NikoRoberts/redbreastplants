@@ -2,14 +2,17 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'Redbreast'
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Redbreast'}"}
+    %title= content_for?(:title) ? yield(:title) : 'Redbreast Plants - Australian Native Plants in Tasmania'
+    %meta{ name: "description", content: "#{content_for?(:description) ? yield(:description) : 'Redbreast Plants is a Australian native plant Nursery owned and operated in Tasmania'}"}
+    %meta{ name: "Copyright", content: "Copyright &copy; 2005-2017 Redbreast Plants" }
+    %meta{ name: "verify-v1", content: "/rX5cKHIQU0128j/cOE3+g31CqzP/+NpV/nAQPXLpZc=" }
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     = csrf_meta_tags
+    %link{ rel: "icon", type: "image/png", href: "/assets/favicon.png" }
   %body
     %header
-      = render 'layouts/navigation'
+      = #render 'layouts/navigation'
     %main{:role => "main"}
       = render 'layouts/messages'
       = yield
