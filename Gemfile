@@ -49,7 +49,7 @@ group :development, :test do
   gem 'thin'
 end
 group :production do
-  gem 'passenger'
+  gem 'passenger', '5.1.0'
 end
 group :test do
   gem 'capybara'
