@@ -119,7 +119,7 @@ class PlantsController < ApplicationController
       plant.update(
         tag_name: params[:tag_name],
         common_name: params[:common_name],
-        pot_colour: params[:common_name],
+        pot_colour: params[:pot_colour],
         pot_price: params[:pot_price],
         state_of_origin: params[:state_of_origin],
         height_minimum: params[:min_h],
