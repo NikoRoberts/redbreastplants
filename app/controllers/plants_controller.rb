@@ -1,5 +1,6 @@
 class PlantsController < ApplicationController
-  before_action :set_plant, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :exception, unless: proc { |c| c.request.format == "application/json" }
+  before_action :set_plant, :admin_access?, only: [:show, :edit, :update, :destroy]
   before_action :find_bot_plant, only: [:update_plant, :remove_plant]
 
   # GET /plants
@@ -41,6 +42,7 @@ class PlantsController < ApplicationController
   # POST /update_plant
   # POST /update_plant.json
   def update_plant
+    render_empty unless auth_key_provided?
     @plant = Plant.new(plant_params)
 
     respond_to do |format|
@@ -54,8 +56,7 @@ class PlantsController < ApplicationController
 
   # POST /remove_plant.json
   def remove_plant
-    @plant = Plant.new(plant_params)
-
+    render_empty unless auth_key_provided?
     respond_to do |format|
       if @plant.update(deleted: true)
         format.json { render :show, status: :created, location: @plant }
@@ -98,6 +99,18 @@ class PlantsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_params
       params.fetch(:plant, {})
+    end
+
+    def render_empty
+      render json: {}, status: :unprocessable_entity
+    end
+
+    def auth_key_provided?
+      params[:auth] == ENV['POST_AUTH_KEY']
+    end
+
+    def admin_access?
+      raise "No access" unless current_user.is_admin?
     end
 
     def find_bot_plant
