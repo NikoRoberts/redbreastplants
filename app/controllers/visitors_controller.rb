@@ -4,6 +4,7 @@ class VisitorsController < ApplicationController
   def maps
   end
   def plantlist
+    @plants = Plant.visible
   end
 
   def plantlist_update

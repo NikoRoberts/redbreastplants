@@ -43,8 +43,6 @@ class PlantsController < ApplicationController
   # POST /update_plant.json
   def update_plant
     render_empty unless auth_key_provided?
-    @plant = Plant.new(plant_params)
-
     respond_to do |format|
       if set_attributes_from_filemaker(@plant)
         format.json { render :show, status: :created, location: @plant }
