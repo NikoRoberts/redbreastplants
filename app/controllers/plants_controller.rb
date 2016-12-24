@@ -160,7 +160,7 @@ class PlantsController < ApplicationController
         frost_snow: params[:frost_snow],
         wind_resistance: params[:wind_resistance],
         drought_tolerance: params[:drought_tolerance],
-        photo: params[:photo],
+        photo: "data:image/jpeg;base64," + Base64.strict_encode64(Base64.decode64(params[:photo].gsub(' ','+'))),
         deleted: false
       )
     end
