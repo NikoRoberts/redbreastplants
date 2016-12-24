@@ -1,6 +1,6 @@
 RailsAdmin.config do |config|
   ### Popular gems integration
-
+  config.parent_controller = "::ApplicationController"
   ## == Devise ==
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
@@ -18,12 +18,12 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user.is_admin?
+    redirect_to main_app.root_path unless current_user && current_user.is_admin?
   end
 
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
-  config.show_gravatar true
+  # config.show_gravatar true
 
   config.actions do
     dashboard                     # mandatory
