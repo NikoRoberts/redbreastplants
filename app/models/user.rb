@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  provider   :string
+#  uid        :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  role       :integer
+#
+
 class User < ActiveRecord::Base
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
@@ -20,4 +33,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_admin?
+    role == "admin"
+  end
 end

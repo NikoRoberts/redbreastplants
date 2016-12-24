@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'dotenv-rails', '~> 2.1'
+gem 'rails_admin'
 
 group :development, :test do
   gem 'byebug'
@@ -40,6 +41,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
+  gem 'annotate'
 end
 group :development, :test do
   gem 'factory_girl_rails'
