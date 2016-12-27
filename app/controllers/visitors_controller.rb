@@ -7,15 +7,11 @@ class VisitorsController < ApplicationController
     @plants = Plant.visible
   end
 
-  def plantlist_update
-    render text: "", status: 403 unless params["auth"] == ENV["POST_AUTH_KEY"]
-    if params["update"] == "1"
-
-    elsif params["remove"] == "1"
-
-    end
+  def contact
   end
 
-  def contact
+  def send_contact
+    ContactMailer.notify_about_contact(params[:name], params[:email], params[:website], params[:message])
+    redirect_to contact_url, notice: "Message sent successfully"
   end
 end

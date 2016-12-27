@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :plants
   root to: 'visitors#index'
   get '/about-us' => 'visitors#about'
+  post '/send_contact' => 'visitors#send_contact'
   get '/maps' => 'visitors#maps'
   get '/plant-list' => 'visitors#plantlist'
   post '/plant-list' => 'visitors#plantlist_update'
