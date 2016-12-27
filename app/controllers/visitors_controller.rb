@@ -3,6 +3,12 @@ class VisitorsController < ApplicationController
   end
   def maps
   end
+
+  def plant
+    @plant = Plant.find(params[:id])
+    render json: render_to_string("_plant", formats: [:html], layout: false, locals: { plant: @plant })
+  end
+
   def plantlist
     @plants = Plant.visible
   end

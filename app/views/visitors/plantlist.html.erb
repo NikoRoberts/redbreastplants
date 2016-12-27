@@ -99,7 +99,7 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
       <td><%= plant.soil_types %></td>
       <td>
         <% unless plant.photo.blank? %>
-          <img src="data:img/gif;base64,<%= plant.photo %>" width=100>
+          <a class="see_photo" href="#photo" data-no-turbolinks="true" data-id="<%= plant.id %>">See Photo</a>
         <% end %>
       </td>
     </tr>
@@ -108,10 +108,32 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
 </table>
 </div>
 
+<!-- Modal -->
+  <div class="modal fade" id="photo" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script type="text/javascript">
 $(document).ready(function()
 {
+    $(".see_photo").click(function(ev){
+        ev.preventDefault();
+        var target = "/plant.json?id=" + $(this).data("id");
+        $("#photo .modal-body").load(target, function() {
+          $("#photo").modal("show");
+        });
+        return false;
+    });
     $("#myTable th").click(function()
     {
         var $_GET = [];

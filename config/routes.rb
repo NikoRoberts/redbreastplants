@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/send_contact' => 'visitors#send_contact'
   get '/maps' => 'visitors#maps'
   get '/plant-list' => 'visitors#plantlist'
+  get '/plant.json' => 'visitors#plant'
   post '/plant-list' => 'visitors#plantlist_update'
   post '/update_plant' => 'plants#update_plant'
   post '/remove_plant' => 'plants#remove_plant'
