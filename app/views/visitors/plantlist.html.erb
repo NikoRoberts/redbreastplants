@@ -97,7 +97,11 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
       <td><%= plant.average_width %></td>
       <td><%= plant.flower_colour_and_season %></td>
       <td><%= plant.soil_types %></td>
-      <td><img src="<%= plant.photo %>" width=100></td>
+      <td>
+        <% unless plant.photo.blank? %>
+          <img src="data:img/gif;base64,<%= plant.photo %>" width=100>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </tbody>

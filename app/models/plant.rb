@@ -59,5 +59,5 @@
 
 class Plant < ActiveRecord::Base
   validates :botanical_name, presence: true, uniqueness: true
-  scope :visible, -> { where(deleted: false) }
+  scope :visible, -> { where(deleted: false).order(:botanical_name) }
 end
