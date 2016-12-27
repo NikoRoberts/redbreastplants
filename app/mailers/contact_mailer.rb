@@ -6,7 +6,7 @@ class ContactMailer < ActionMailer::Base
     @name = name
     @from = from
     @website = website
-    @contact = contact
+    @content = content
     mail(to: "redbreast.plants@gmail.com", subject: "Redbreast Contact Page - #{name}")
   end
 end
