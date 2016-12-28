@@ -24,31 +24,30 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
 
             <select name="listnum" id="quicklists" style="width:247px;">
                 <option>All Plants</option>
-                <option value="1">Tasmanian Species</option>
-                <option value="2">Screen Plants</option>
-                <option value="3">Windbreaks</option>
-                <option value="4">Groundcovers</option>
-                <option value="5">Coastal Plants</option>
-                <option value="6">Drought Tolerant</option>
-                <option value="7">Hardy Plants</option>
-                <option value="8">Timber Trees</option>
-                <option value="9">Dappled Shade</option>
-                <option value="10">Wet Site</option>
-                <option value="11">Avenue Features</option>
-                <option value="12">Small Feature Plants</option>
-                <option value="13">Container Plants</option>
-                <option value="14">Cut Flowers and Foliage</option>
-                <option value="15">Border Plants</option>
-                <option value="16">Grasses Sedges and Clumping Plants</option>
-                <option value="17">Rockery Plants</option>
-                <option value="18">Compact Plants</option>
-                <option value="19">Contrast Plants</option>
-                <option value="25">Climbing Plants</option>
-                <option value="20">Bush Food Plants</option>
-                <option value="21">Butterfly Attracting</option>
-                <option value="22">Bird Attracting</option>
-                <option value="23">Waste Water List</option>
-                <option value="24">Roadside Planting</option>
+                <option value="e_for_endemic">Tasmanian Species</option>
+                <option value="screen">Screen Plants</option>
+                <option value="windbreak">Windbreaks</option>
+                <option value="r_for_retainer_wall;t_for_trailing_plants">Groundcovers</option>
+                <option value="exposure">Coastal Plants</option>
+                <option value="drought">Drought Tolerant</option>
+                <option value="snow">Hardy Plants</option>
+                <option value="timber">Timber Trees</option>
+                <option value="dappled">Dappled Shade</option>
+                <option value="wet">Wet Site</option>
+                <option value="avenue">Avenue Features</option>
+                <option value="small">Small Feature Plants</option>
+                <option value="container">Container Plants</option>
+                <option value="cut">Cut Flowers and Foliage</option>
+                <option value="border">Border Plants</option>
+                <option value="clumping">Grasses Sedges and Clumping Plants</option>
+                <option value="rockery">Rockery Plants</option>
+                <option value="compact">Compact Plants</option>
+                <option value="contrast">Climbers &amp; Contrast Plants</option>
+                <option value="bush food">Bush Food Plants</option>
+                <option value="butterfl">Butterfly Attracting</option>
+                <option value="bird">Bird Attracting</option>
+                <option value="waste  water">Waste Water List</option>
+                <option value="roadside">Roadside Planting</option>
             </select>
             </div>
             <br>
@@ -74,7 +73,7 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
     </thead>
     <tbody>
       <% @plants.each do |plant| %>
-        <tr class="searchable" data-index="<%= plant.botanical_name.to_s.downcase %> <%= plant.common_name.to_s.downcase %> <%= plant.comments.to_s.downcase %> <%= plant.flower_colour_and_season.to_s.downcase %> <%= plant.soil_types.to_s.downcase %>">
+        <tr class="searchable" data-index="<%= plant.botanical_name.to_s.downcase %> <%= plant.common_name.to_s.downcase %> <%= plant.comments.to_s.downcase %> <%= plant.flower_colour_and_season.to_s.downcase %> <%= plant.soil_types.to_s.downcase %> <%= plant.quicklist_search_string.to_s.downcase %>">
           <td><%= plant.botanical_name %></td>
           <td><%= plant.common_name %></td>
           <td><%= plant.comments %></td>

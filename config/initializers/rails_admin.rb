@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
   config.authorize_with do
-    redirect_to main_app.root_path unless current_user && current_user.is_admin?
+    redirect_to main_app.root_path unless Rails.env.development? || (current_user && current_user.is_admin?)
   end
 
   ## == Gravatar integration ==
