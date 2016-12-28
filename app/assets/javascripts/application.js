@@ -66,7 +66,7 @@ var setupFilterSearch = function() {
           filters += '[data-index*="' + value.toLowerCase().replace(/( )/gi,'') + '"]';
         }
       });
-      $('.filter-ql-style').html('.searchable{ display: none; } .searchable' + filters + ' { display: table-row; }');
+      $('.filter-search-style').html('.searchable{ display: none; } .searchable' + filters + ' { display: table-row; }');
     }
   });
 };
