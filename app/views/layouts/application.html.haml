@@ -10,9 +10,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     = csrf_meta_tags
     %link{ rel: "icon", type: "image/png", href: "#{image_url('favicon.png')}" }
+    %style.filter-search-style
   %body
     %header
       = #render 'layouts/navigation'
-    %main{:role => "main"}
+    %main{ role: "main" }
       = render 'layouts/messages'
       = yield

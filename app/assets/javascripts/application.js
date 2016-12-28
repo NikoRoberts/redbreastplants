@@ -14,4 +14,42 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require jquery.tablesorter
 //= require_tree .
+
+var setupGenericSortableList = function($obj) {
+  var $notAlreadySorted = $(".sortable-table").not('.already-sorted');
+  if($notAlreadySorted.length > 0) {
+    $notAlreadySorted.each(function() {
+      $this = $(this);
+      $table = $this.find('table');
+      if ($table.length) {
+        $table.tablesorter({
+          cssNoSort: 'sorter-false'
+        });
+        $this.addClass('already-sorted');
+      }
+    });
+  }
+};
+
+var setupFilterSearch = function() {
+  if(!$('#filter-search-input').length > 0) { return; }
+  $('#filter-search-input').on('input', function() {
+    var val = $(this).val();
+    console.log("val: "+val)
+    if (!val) {
+      $('.filter-search-style').html('');
+      return;
+    }
+    $('.filter-search-style').html('.searchable:not([data-index*="' + val.toLowerCase() + '"]) { display: none; }');
+  });
+};
+
+var do_on_load = function() {
+  setupGenericSortableList();
+  setupFilterSearch();
+  $('.filter-search-style').html(''); /* reset search between pages */
+}
+$(document).ready(do_on_load);
+$(document).on('turbolinks:load', do_on_load);

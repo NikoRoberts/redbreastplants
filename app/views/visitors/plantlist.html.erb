@@ -12,12 +12,11 @@
         <div id="two-col" class="border" style="width:890px;">
 <h2 class="green">The Plant List</h2>
 A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
-<a href="?whole=yes">Click Here</a> for the entire plant list.<br>
 <br>
 </div>
 
 <div style="width:890px;">
-
+  <div class="sortable-table">
     <div>
         <form name="searchform" method="GET" action="plant-list">
             <div>
@@ -52,60 +51,47 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
                 <option value="24">Roadside Planting</option>
             </select>
             </div>
-
+            <br>
             <div>
-                    <span style="display:inline-block;width:120px;color:#006699">quick plant search</span>
-                    <input id="search" autocomplete="off" style="padding:0;margin:0;width:243px;" name="search" type="text" size="36" value="search for plant..." onkeyup="lookup(this.value);" onblur="fill();" />
-            </div>
-
-            <div>
-                <span style="display:inline-block;width:120px">&nbsp;</span><input type="submit" value="Search">
-            </div>
-
-            <div class="suggestionsBox" id="suggestions" style="display: none;">
-                    <div class="suggestionList" id="autoSuggestionsList">
-                            &nbsp;
-                    </div>
+                <span style="display:inline-block;width:120px;color:#006699">quick plant search</span>
+                <input id="filter-search-input" autocomplete="off" style="padding:4px;margin:0;width:247px;" name="search" type="text" placeholder="Type to search">
             </div>
         </form>
     </div>
-    <div id="imgholder">
-    </div>
-
-<br>
-<a href="?srtplnt=0">&lt;&lt;</a> &lt;  PAGE 1 of 37 <a href="?srtplnt=30">&gt;</a> <a href="?srtplnt=1080">&gt;&gt;</a><br><br>
-<table id="myTable" class="tablesorter" style="width:880px !important; margin: 0 0 50px 0;">
-<thead>
-  <tr>
-    <th style="width:110px" value="Botanical_Name" >Botanical Name</th>
-    <th style="width:100px" value="Common_Name" >Common Name</th>
-    <th value="Comments" >Comments</th>
-    <th style="width:30px" value="Average_Height" >Avg. Height</th>
-    <th style="width:30px" value="Average_Width" >Avg. Width</th>
-    <th value="Flower_Colour_and_Season" >Flower &amp; Season</th>
-    <th value="Soil_Types" >Soil</th>
-    <th value="photo" >Photo</th>
-  </tr>
-</thead>
-<tbody>
-  <% @plants.each do |plant| %>
-    <tr>
-      <td><%= plant.botanical_name %></td>
-      <td><%= plant.common_name %></td>
-      <td><%= plant.comments %></td>
-      <td><%= plant.average_height %></td>
-      <td><%= plant.average_width %></td>
-      <td><%= plant.flower_colour_and_season %></td>
-      <td><%= plant.soil_types %></td>
-      <td>
-        <% unless plant.photo.blank? %>
-          <a class="see_photo" href="#photo" data-no-turbolinks="true" data-id="<%= plant.id %>">See Photo</a>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</tbody>
-</table>
+    <br>
+    <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th style="width:110px" value="Botanical_Name" >Botanical Name</th>
+        <th style="width:100px" value="Common_Name" >Common Name</th>
+        <th value="Comments" >Comments</th>
+        <th style="width:30px" value="Average_Height" >Avg. Height</th>
+        <th style="width:30px" value="Average_Width" >Avg. Width</th>
+        <th value="Flower_Colour_and_Season" >Flower &amp; Season</th>
+        <th value="Soil_Types" >Soil</th>
+        <th value="photo" >Photo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plants.each do |plant| %>
+        <tr class="searchable" data-index="<%= plant.botanical_name.to_s.downcase %> <%= plant.common_name.to_s.downcase %> <%= plant.comments.to_s.downcase %> <%= plant.flower_colour_and_season.to_s.downcase %> <%= plant.soil_types.to_s.downcase %>">
+          <td><%= plant.botanical_name %></td>
+          <td><%= plant.common_name %></td>
+          <td><%= plant.comments %></td>
+          <td><%= plant.average_height %></td>
+          <td><%= plant.average_width %></td>
+          <td><%= plant.flower_colour_and_season %></td>
+          <td><%= plant.soil_types %></td>
+          <td>
+            <% unless plant.photo.blank? %>
+              <a class="see_photo" href="#photo" data-no-turbolinks="true" data-id="<%= plant.id %>">See Photo</a>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
 </div>
 
 <!-- Modal -->
