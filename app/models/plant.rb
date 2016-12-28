@@ -92,6 +92,7 @@ class Plant < ActiveRecord::Base
     ql += bush_food_comments unless bush_food_comments.blank?
     ql += bio_cycle_waste_water_list unless bio_cycle_waste_water_list.blank?
     ql += roadside_plants_list unless roadside_plants_list.blank?
-    ql
+    ql += state_of_origin unless state_of_origin.blank?
+    ql.downcase.gsub(' ','')
   end
 end

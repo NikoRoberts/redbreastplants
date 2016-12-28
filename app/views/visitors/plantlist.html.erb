@@ -23,17 +23,17 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
             <span style="display:inline-block;width:120px;color:#006699">quick pre-made lists</span>
 
             <select name="listnum" id="quicklists" style="width:247px;">
-                <option>All Plants</option>
+                <option value="">All Plants</option>
                 <option value="e_for_endemic">Tasmanian Species</option>
                 <option value="screen">Screen Plants</option>
                 <option value="windbreak">Windbreaks</option>
-                <option value="r_for_retainer_wall;t_for_trailing_plants">Groundcovers</option>
+                <option value="groundcover">Groundcovers</option>
                 <option value="exposure">Coastal Plants</option>
                 <option value="drought">Drought Tolerant</option>
                 <option value="snow">Hardy Plants</option>
                 <option value="timber">Timber Trees</option>
                 <option value="dappled">Dappled Shade</option>
-                <option value="wet">Wet Site</option>
+                <option value="wet_sites1">Wet Site</option>
                 <option value="avenue">Avenue Features</option>
                 <option value="small">Small Feature Plants</option>
                 <option value="container">Container Plants</option>
@@ -43,10 +43,10 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
                 <option value="rockery">Rockery Plants</option>
                 <option value="compact">Compact Plants</option>
                 <option value="contrast">Climbers &amp; Contrast Plants</option>
-                <option value="bush food">Bush Food Plants</option>
+                <option value="bushfood">Bush Food Plants</option>
                 <option value="butterfl">Butterfly Attracting</option>
                 <option value="bird">Bird Attracting</option>
-                <option value="waste  water">Waste Water List</option>
+                <option value="wastewater">Waste Water List</option>
                 <option value="roadside">Roadside Planting</option>
             </select>
             </div>
@@ -73,7 +73,7 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
     </thead>
     <tbody>
       <% @plants.each do |plant| %>
-        <tr class="searchable" data-index="<%= plant.botanical_name.to_s.downcase %> <%= plant.common_name.to_s.downcase %> <%= plant.comments.to_s.downcase %> <%= plant.flower_colour_and_season.to_s.downcase %> <%= plant.soil_types.to_s.downcase %> <%= plant.quicklist_search_string.to_s.downcase %>">
+        <tr class="searchable" data-index="<%= plant.botanical_name.to_s.downcase.gsub(' ','') %> <%= plant.common_name.to_s.downcase.gsub(' ','') %> <%= plant.comments.to_s.downcase.gsub(' ','') %> <%= plant.flower_colour_and_season.to_s.downcase.gsub(' ','') %> <%= plant.soil_types.to_s.downcase.gsub(' ','') %> <%= plant.quicklist_search_string.to_s.downcase.gsub(' ','') %>">
           <td><%= plant.botanical_name %></td>
           <td><%= plant.common_name %></td>
           <td><%= plant.comments %></td>
