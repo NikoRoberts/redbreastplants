@@ -17,7 +17,10 @@ class VisitorsController < ApplicationController
   end
 
   def send_contact
-    ContactMailer.notify_about_contact(params[:name], params[:email_address], params[:telephone], params[:message]).deliver
+    # record the contact
+    ContactRecord.create(name: params[:name], email: params[:email_address], telephone: params[:telephone], message: params[:message])
+    # send the email
+    ContactMailer.notify_about_contact(params[:name], params[:email_address], params[:telephone], params[:message]).deliver_now
     redirect_to contact_url, notice: "Message sent successfully"
   end
 end
