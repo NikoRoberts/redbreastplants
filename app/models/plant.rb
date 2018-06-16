@@ -48,7 +48,7 @@
 #  wind_resistance                      :string
 #  drought_tolerance                    :string
 #  photo                                :text
-#  deleted                              :boolean          default("false")
+#  deleted                              :boolean          default(FALSE)
 #  created_at                           :datetime         not null
 #  updated_at                           :datetime         not null
 #
