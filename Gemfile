@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
-gem 'rails', '4.2.6'
+ruby '2.4.4'
+gem 'rails', '~> 4.2.7.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'dotenv-rails', '~> 2.1'
-gem 'rails_admin'
+gem 'rails_admin', '~> 1.3.0'
 
 group :development, :test do
   gem 'byebug'
@@ -49,7 +49,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.49.0'
   gem 'thin'
 end
 group :production do
