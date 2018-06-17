@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class PlantsController < ApplicationController
-  protect_from_forgery with: :exception, unless: proc { |c| c.request.format == "application/json" }
-  before_action :set_plant, :admin_access?, only: [:show, :edit, :update, :destroy]
-  before_action :find_bot_plant, only: [:update_plant, :remove_plant]
+  protect_from_forgery with: :exception, unless: proc { |c| c.request.format == 'application/json' }
+  before_action :set_plant, :admin_access?, only: %i[show edit update destroy]
+  before_action :find_bot_plant, only: %i[update_plant remove_plant]
 
   # GET /plants
   # GET /plants.json
@@ -30,7 +30,7 @@ class PlantsController < ApplicationController
 
     respond_to do |format|
       if @plant.save
-        format.html { redirect_to @plant, notice: "Plant was successfully created." }
+        format.html { redirect_to @plant, notice: 'Plant was successfully created.' }
         format.json { render :show, status: :created, location: @plant }
       else
         format.html { render :new }
@@ -69,7 +69,7 @@ class PlantsController < ApplicationController
   def update
     respond_to do |format|
       if @plant.update(plant_params)
-        format.html { redirect_to @plant, notice: "Plant was successfully updated." }
+        format.html { redirect_to @plant, notice: 'Plant was successfully updated.' }
         format.json { render :show, status: :ok, location: @plant }
       else
         format.html { render :edit }
@@ -83,7 +83,7 @@ class PlantsController < ApplicationController
   def destroy
     @plant.destroy
     respond_to do |format|
-      format.html { redirect_to plants_url, notice: "Plant was successfully destroyed." }
+      format.html { redirect_to plants_url, notice: 'Plant was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -105,11 +105,11 @@ class PlantsController < ApplicationController
   end
 
   def auth_key_provided?
-    params[:auth] == ENV["POST_AUTH_KEY"]
+    params[:auth] == ENV['POST_AUTH_KEY']
   end
 
   def admin_access?
-    raise "No access" unless current_user.is_admin?
+    raise 'No access' unless current_user.is_admin?
   end
 
   def find_bot_plant

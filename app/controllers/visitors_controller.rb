@@ -7,7 +7,7 @@ class VisitorsController < ApplicationController
 
   def plant
     @plant = Plant.find(params[:id])
-    render json: render_to_string("_plant", formats: [:html], layout: false, locals: { plant: @plant })
+    render json: render_to_string('_plant', formats: [:html], layout: false, locals: { plant: @plant })
   end
 
   def plantlist
@@ -21,6 +21,6 @@ class VisitorsController < ApplicationController
     ContactRecord.create(name: params[:name], email: params[:email_address], telephone: params[:telephone], message: params[:message])
     # send the email
     ContactMailer.notify_about_contact(params[:name], params[:email_address], params[:telephone], params[:message]).deliver_now
-    redirect_to contact_url, notice: "Message sent successfully"
+    redirect_to contact_url, notice: 'Message sent successfully'
   end
 end

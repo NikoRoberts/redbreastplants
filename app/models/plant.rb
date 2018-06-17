@@ -64,26 +64,26 @@ class Plant < ApplicationRecord
   scope :visible, -> { where(deleted: false).order(:botanical_name) }
 
   def quicklist_search_string
-    ql = ""
-    ql += " e_for_endemic" if e_for_endemic.present?
-    ql += " r_for_retainer_wall" if r_for_retainer_wall.present?
-    ql += " v_for_very_drought" if v_for_very_drought.present?
-    ql += " x_for_severe_exposure" if x_for_severe_exposure.present?
-    ql += " x_for_severe_exposure" if x_for_severe_exposure.present?
-    ql += " wet_sites" + wet_sites_1_2_3 if wet_sites_1_2_3.present?
-    ql += " h_for_very_wind_hardy" if h_for_very_wind_hardy.present?
-    ql += " s_for_sandy_dry_soils" if s_for_sandy_dry_soils.present?
-    ql += " w_for_weeping_feature" if w_for_weeping_feature.present?
-    ql += " flowers_foliage_" + f_or_l_for_cut_flowers_or_foliage if f_or_l_for_cut_flowers_or_foliage.present?
-    ql += " o_or_l_for_indoor_container_in_shade" if o_or_l_for_indoor_container_in_shade.present?
-    ql += " indoor" + o_or_l_for_indoor_container_in_shade if o_or_l_for_indoor_container_in_shade.present?
-    ql += " a_for_revegatation" if a_for_revegatation.present?
-    ql += " c_for_clumping_habit" if c_for_clumping_habit.present?
-    ql += " t_for_trailing_plants" if t_for_trailing_plants.present?
-    ql += " b_for_bird_attracting" if b_for_bird_attracting.present?
-    ql += " p_for_pond_plants" if p_for_pond_plants.present?
-    ql += " t_for_tas_food" if t_for_tas_food.present?
-    ql += " z_for_common_name_index" if z_for_common_name_index.present?
+    ql = ''
+    ql += ' e_for_endemic' if e_for_endemic.present?
+    ql += ' r_for_retainer_wall' if r_for_retainer_wall.present?
+    ql += ' v_for_very_drought' if v_for_very_drought.present?
+    ql += ' x_for_severe_exposure' if x_for_severe_exposure.present?
+    ql += ' x_for_severe_exposure' if x_for_severe_exposure.present?
+    ql += ' wet_sites' + wet_sites_1_2_3 if wet_sites_1_2_3.present?
+    ql += ' h_for_very_wind_hardy' if h_for_very_wind_hardy.present?
+    ql += ' s_for_sandy_dry_soils' if s_for_sandy_dry_soils.present?
+    ql += ' w_for_weeping_feature' if w_for_weeping_feature.present?
+    ql += ' flowers_foliage_' + f_or_l_for_cut_flowers_or_foliage if f_or_l_for_cut_flowers_or_foliage.present?
+    ql += ' o_or_l_for_indoor_container_in_shade' if o_or_l_for_indoor_container_in_shade.present?
+    ql += ' indoor' + o_or_l_for_indoor_container_in_shade if o_or_l_for_indoor_container_in_shade.present?
+    ql += ' a_for_revegatation' if a_for_revegatation.present?
+    ql += ' c_for_clumping_habit' if c_for_clumping_habit.present?
+    ql += ' t_for_trailing_plants' if t_for_trailing_plants.present?
+    ql += ' b_for_bird_attracting' if b_for_bird_attracting.present?
+    ql += ' p_for_pond_plants' if p_for_pond_plants.present?
+    ql += ' t_for_tas_food' if t_for_tas_food.present?
+    ql += ' z_for_common_name_index' if z_for_common_name_index.present?
     ql += coastal_tolerance if coastal_tolerance.present?
     ql += drought_tolerance if drought_tolerance.present?
     ql += drainage if drainage.present?
@@ -95,6 +95,6 @@ class Plant < ApplicationRecord
     ql += bio_cycle_waste_water_list if bio_cycle_waste_water_list.present?
     ql += roadside_plants_list if roadside_plants_list.present?
     ql += state_of_origin if state_of_origin.present?
-    ql.downcase.delete(" ")
+    ql.downcase.delete(' ')
   end
 end

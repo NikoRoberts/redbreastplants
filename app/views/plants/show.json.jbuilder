@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-json.partial! "plants/plant", plant: @plant
+json.partial! 'plants/plant', plant: @plant

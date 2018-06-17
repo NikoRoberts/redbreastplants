@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 set :stage, :production
-set :rvm_ruby_version, "2.4.4" # Defaults to: 'default'
+set :rvm_ruby_version, '2.4.4' # Defaults to: 'default'
 
 # Simple Role Syntax
 # ==================
@@ -18,7 +18,7 @@ role :db,  %w[deployer@www.redbreastplants.com.au]
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server "www.redbreastplants.com.au", user: "deployer", roles: %w[web app]
+server 'www.redbreastplants.com.au', user: 'deployer', roles: %w[web app]
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options

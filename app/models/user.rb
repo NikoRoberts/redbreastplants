@@ -14,7 +14,7 @@
 #
 
 class User < ApplicationRecord
-  enum role: [:user, :vip, :admin]
+  enum role: %i[user vip admin]
   after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
@@ -27,13 +27,13 @@ class User < ApplicationRecord
 
   def self.create_with_omniauth(auth)
     create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"] || "" if auth["info"]
+      user.provider = auth['provider']
+      user.uid = auth['uid']
+      user.name = auth['info']['name'] || '' if auth['info']
     end
   end
 
   def is_admin?
-    role == "admin"
+    role == 'admin'
   end
 end
