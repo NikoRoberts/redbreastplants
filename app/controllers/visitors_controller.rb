@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class VisitorsController < ApplicationController
-  def about
-  end
-  def maps
-  end
+  def about; end
+
+  def maps; end
 
   def plant
     @plant = Plant.find(params[:id])
@@ -13,8 +14,7 @@ class VisitorsController < ApplicationController
     @plants = Plant.visible
   end
 
-  def contact
-  end
+  def contact; end
 
   def send_contact
     # record the contact

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: plants
@@ -57,42 +59,42 @@
 #  index_plants_on_botanical_name  (botanical_name)
 #
 
-class Plant < ActiveRecord::Base
+class Plant < ApplicationRecord
   validates :botanical_name, presence: true, uniqueness: true
   scope :visible, -> { where(deleted: false).order(:botanical_name) }
 
   def quicklist_search_string
     ql = ""
-    ql += " e_for_endemic" unless e_for_endemic.blank?
-    ql += " r_for_retainer_wall" unless r_for_retainer_wall.blank?
-    ql += " v_for_very_drought" unless v_for_very_drought.blank?
-    ql += " x_for_severe_exposure" unless x_for_severe_exposure.blank?
-    ql += " x_for_severe_exposure" unless x_for_severe_exposure.blank?
-    ql += " wet_sites" + wet_sites_1_2_3 unless wet_sites_1_2_3.blank?
-    ql += " h_for_very_wind_hardy" unless h_for_very_wind_hardy.blank?
-    ql += " s_for_sandy_dry_soils" unless s_for_sandy_dry_soils.blank?
-    ql += " w_for_weeping_feature" unless w_for_weeping_feature.blank?
-    ql += " flowers_foliage_" + f_or_l_for_cut_flowers_or_foliage unless f_or_l_for_cut_flowers_or_foliage.blank?
-    ql += " o_or_l_for_indoor_container_in_shade" unless o_or_l_for_indoor_container_in_shade.blank?
-    ql += " indoor" + o_or_l_for_indoor_container_in_shade unless o_or_l_for_indoor_container_in_shade.blank?
-    ql += " a_for_revegatation" unless a_for_revegatation.blank?
-    ql += " c_for_clumping_habit" unless c_for_clumping_habit.blank?
-    ql += " t_for_trailing_plants" unless t_for_trailing_plants.blank?
-    ql += " b_for_bird_attracting" unless b_for_bird_attracting.blank?
-    ql += " p_for_pond_plants" unless p_for_pond_plants.blank?
-    ql += " t_for_tas_food" unless t_for_tas_food.blank?
-    ql += " z_for_common_name_index" unless z_for_common_name_index.blank?
-    ql += coastal_tolerance unless coastal_tolerance.blank?
-    ql += drought_tolerance unless drought_tolerance.blank?
-    ql += drainage unless drainage.blank?
-    ql += wind_resistance unless wind_resistance.blank?
-    ql += position unless position.blank?
-    ql += timber_comments unless timber_comments.blank?
-    ql += frost_snow unless frost_snow.blank?
-    ql += bush_food_comments unless bush_food_comments.blank?
-    ql += bio_cycle_waste_water_list unless bio_cycle_waste_water_list.blank?
-    ql += roadside_plants_list unless roadside_plants_list.blank?
-    ql += state_of_origin unless state_of_origin.blank?
-    ql.downcase.gsub(' ','')
+    ql += " e_for_endemic" if e_for_endemic.present?
+    ql += " r_for_retainer_wall" if r_for_retainer_wall.present?
+    ql += " v_for_very_drought" if v_for_very_drought.present?
+    ql += " x_for_severe_exposure" if x_for_severe_exposure.present?
+    ql += " x_for_severe_exposure" if x_for_severe_exposure.present?
+    ql += " wet_sites" + wet_sites_1_2_3 if wet_sites_1_2_3.present?
+    ql += " h_for_very_wind_hardy" if h_for_very_wind_hardy.present?
+    ql += " s_for_sandy_dry_soils" if s_for_sandy_dry_soils.present?
+    ql += " w_for_weeping_feature" if w_for_weeping_feature.present?
+    ql += " flowers_foliage_" + f_or_l_for_cut_flowers_or_foliage if f_or_l_for_cut_flowers_or_foliage.present?
+    ql += " o_or_l_for_indoor_container_in_shade" if o_or_l_for_indoor_container_in_shade.present?
+    ql += " indoor" + o_or_l_for_indoor_container_in_shade if o_or_l_for_indoor_container_in_shade.present?
+    ql += " a_for_revegatation" if a_for_revegatation.present?
+    ql += " c_for_clumping_habit" if c_for_clumping_habit.present?
+    ql += " t_for_trailing_plants" if t_for_trailing_plants.present?
+    ql += " b_for_bird_attracting" if b_for_bird_attracting.present?
+    ql += " p_for_pond_plants" if p_for_pond_plants.present?
+    ql += " t_for_tas_food" if t_for_tas_food.present?
+    ql += " z_for_common_name_index" if z_for_common_name_index.present?
+    ql += coastal_tolerance if coastal_tolerance.present?
+    ql += drought_tolerance if drought_tolerance.present?
+    ql += drainage if drainage.present?
+    ql += wind_resistance if wind_resistance.present?
+    ql += position if position.present?
+    ql += timber_comments if timber_comments.present?
+    ql += frost_snow if frost_snow.present?
+    ql += bush_food_comments if bush_food_comments.present?
+    ql += bio_cycle_waste_water_list if bio_cycle_waste_water_list.present?
+    ql += roadside_plants_list if roadside_plants_list.present?
+    ql += state_of_origin if state_of_origin.present?
+    ql.downcase.delete(" ")
   end
 end

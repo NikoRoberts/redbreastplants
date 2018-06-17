@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# mailing to redbreast team from contact form
 class ContactMailer < ActionMailer::Base
   default from: "redbreast.plants@eventfuel.io"
   default to: "redbreast.plants@gmail.com"
@@ -7,6 +10,8 @@ class ContactMailer < ActionMailer::Base
     @from = from
     @telephone = telephone
     @content = content
-    mail(to: "redbreast.plants@gmail.com", subject: "Redbreast Contact Page - #{name} - #{from}")
+    mail(to: "redbreast.plants@gmail.com",
+         reply_to: from,
+         subject: "Redbreast Contact Page - #{name} - #{from}")
   end
 end

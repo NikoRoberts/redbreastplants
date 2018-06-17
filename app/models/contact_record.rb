@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: contact_records
@@ -11,5 +13,5 @@
 #  updated_at :datetime         not null
 #
 
-class ContactRecord < ActiveRecord::Base
+class ContactRecord < ApplicationRecord
 end

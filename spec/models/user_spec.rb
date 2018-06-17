@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -12,7 +14,6 @@
 #
 
 describe User do
-
   before(:each) { @user = FactoryGirl.create(:user) }
 
   subject { @user }
@@ -20,7 +21,6 @@ describe User do
   it { should respond_to(:name) }
 
   it "#name returns a string" do
-    expect(@user.name).to match 'Test User'
+    expect(@user.name).to match "Test User"
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -11,25 +13,23 @@
 #  role       :integer
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   enum role: [:user, :vip, :admin]
-  after_initialize :set_default_role, :if => :new_record?
+  after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
-    if User.count == 0
-      self.role ||= :admin
-    else
-      self.role ||= :user
-    end
+    self.role ||= if User.count == 0
+                    :admin
+                  else
+                    :user
+                  end
   end
 
   def self.create_with_omniauth(auth)
     create! do |user|
-      user.provider = auth['provider']
-      user.uid = auth['uid']
-      if auth['info']
-         user.name = auth['info']['name'] || ""
-      end
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["info"]["name"] || "" if auth["info"]
     end
   end
 

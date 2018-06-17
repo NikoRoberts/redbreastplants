@@ -1,28 +1,29 @@
-set :application, 'redbreast'
-set :repo_url, 'git@github.com:NikoRoberts/redbreastplants.git'
+# frozen_string_literal: true
+
+set :application, "redbreast"
+set :repo_url, "git@github.com:NikoRoberts/redbreastplants.git"
 
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, '/var/www/redbreastplants.com.au'
+set :deploy_to, "/var/www/redbreastplants.com.au"
 set :scm, :git
 
 set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-set :linked_files, %w{config/database.yml .env}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_files, %w[config/database.yml .env]
+set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system]
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 set :keep_releases, 5
 
 namespace :deploy do
-
-  desc 'Restart application'
+  desc "Restart application"
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-      execute :touch, release_path.join('tmp/restart.txt')
+      execute :touch, release_path.join("tmp/restart.txt")
     end
   end
 
@@ -35,7 +36,6 @@ namespace :deploy do
     end
   end
 
-  after :finishing, 'deploy:cleanup'
-  after :finishing, 'deploy:restart'
-
+  after :finishing, "deploy:cleanup"
+  after :finishing, "deploy:restart"
 end

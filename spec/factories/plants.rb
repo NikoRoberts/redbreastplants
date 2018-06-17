@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: plants
@@ -57,6 +59,5 @@
 
 FactoryGirl.define do
   factory :plant do
-    
   end
 end
