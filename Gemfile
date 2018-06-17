@@ -27,6 +27,7 @@ group :development do
   gem 'better_errors'
   gem 'capistrano'
   gem 'capistrano-bundler'
+  gem 'capistrano-passenger'
   gem 'capistrano-rails'
   gem 'capistrano-rails-console'
   gem 'capistrano-rvm'
@@ -52,7 +53,7 @@ group :development, :test do
   gem 'thin'
 end
 group :production do
-  gem 'passenger', '5.1.0'
+  gem 'passenger'
 end
 group :test do
   gem 'capybara'
