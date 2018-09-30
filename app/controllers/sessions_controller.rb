@@ -2,7 +2,7 @@
 
 class SessionsController < ApplicationController
   def new
-    redirect_to '/auth/google_oauth2'
+    redirect_to '/auth/auth0?connection=google-oauth2'
   end
 
   def create

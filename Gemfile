@@ -23,7 +23,7 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'omniauth'
-gem 'omniauth-google-oauth2'
+gem 'omniauth-auth0'
 gem 'pg'
 gem 'simple_form'
 group :development do
