@@ -179,7 +179,7 @@ h1{ font:1.9em Georgia;margin-bottom:10px }
 
 @media only screen and (max-width: 800px) {
   body {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
   #centered {
     width: 100%;
@@ -209,10 +209,16 @@ h1{ font:1.9em Georgia;margin-bottom:10px }
   }
   #four-col {
     margin-left: 16px;
-    margin-top: 20px;
     a {
       display: block;
       text-align: center;
+      font-size: 1.4em;
+    }
+    .column {
+      width: 45%;
+      margin-right: 5%;
+      margin-top: 30px;
+      float: left;
     }
   }
   #plantlist {
@@ -220,6 +226,7 @@ h1{ font:1.9em Georgia;margin-bottom:10px }
     margin-top: 50px;
     padding: 10px;
   }
+
   .mobile-hide {
     display: none;
   }
