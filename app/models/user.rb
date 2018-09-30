@@ -26,6 +26,7 @@ class User < ApplicationRecord
   end
 
   def self.create_with_omniauth(auth)
+    raise "Unknown person" unless auth['info']['email'].include?("@eventfuel.io") || auth['info']['email'].include?("redbreast.plants@gmail.com")
     create! do |user|
       user.provider = auth['provider']
       user.uid = auth['uid']
