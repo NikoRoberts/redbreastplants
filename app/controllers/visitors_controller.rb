@@ -10,6 +10,11 @@ class VisitorsController < ApplicationController
     render json: render_to_string('_plant', formats: [:html], layout: false, locals: { plant: @plant })
   end
 
+  def show_plant
+    @plant = Plant.visible.find_by(botanical_name: params[:name].titleize.camelcase)
+    render :plant
+  end
+
   def plantlist
     @plants = Plant.visible
   end

@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   get 'maps.php' => redirect('/maps')
   get 'plant-list.php' => redirect('/plant-list')
   get 'contact.php' => redirect('/contact')
+
+  # Single plant pages
+  get 'australian-natives/(*name)', to: 'visitors#show_plant'
 end

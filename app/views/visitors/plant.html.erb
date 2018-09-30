@@ -1,0 +1,34 @@
+<div id="centered" class="border">
+  <div id="plantlist">
+    <h1 class="green header"><%= @plant.botanical_name %> <%= @plant.common_name %></h1>
+    <% unless @plant.photo.blank? %>
+      <img src="data:img/gif;base64,<%= @plant.photo %>" style="max-width: 100%">
+    <% end %>
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th style="width:110px" value="Botanical_Name" >Botanical Name</th>
+          <th style="width:100px" value="Common_Name" >Common Name</th>
+          <th value="Comments" class="mobile-hide">Comments</th>
+          <th style="width:30px" value="Average_Height" class="mobile-hide">Avg. Height</th>
+          <th style="width:30px" value="Average_Width" class="mobile-hide">Avg. Width</th>
+          <th value="Flower_Colour_and_Season" class="mobile-hide">Flower &amp; Season</th>
+          <th value="Soil_Types" class="mobile-hide">Soil</th>
+          <th value="photo" >Photo</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= @plant.botanical_name %></td>
+            <td><%= @plant.common_name %></td>
+            <td class="mobile-hide"><%= @plant.comments %></td>
+            <td class="mobile-hide"><%= @plant.average_height %></td>
+            <td class="mobile-hide"><%= @plant.average_width %></td>
+            <td class="mobile-hide"><%= @plant.flower_colour_and_season %></td>
+            <td class="mobile-hide"><%= @plant.soil_types %></td>
+            <td></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

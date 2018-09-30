@@ -10,6 +10,7 @@ gem 'rails_admin'
 gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
+gem 'sitemap'
 
 group :development, :test do
   gem 'byebug'

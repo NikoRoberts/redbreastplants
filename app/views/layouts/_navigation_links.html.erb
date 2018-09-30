@@ -1,10 +1,10 @@
-<div id="header">
+<div id="header" class="logo">
   <a href="/"><img src="<%= image_url('logo.gif') %>" alt="" class="floatleft"></a>
   <ul id="navigation">
-    <li><a href="/">Home</a></li>
-    <li><a href="about-us">About us</a></li>
-    <li><a href="maps">Maps</a></li>
-    <li><a href="plant-list">Plant List</a></li>
-    <li><a href="contact">Contact us</a></li>
+    <li class="<%= 'active' if action_name == 'index' %>"><a href="/">Home</a></li>
+    <li class="<%= 'active' if action_name == 'about' %>"><a href="/about-us">About us</a></li>
+    <li class="<%= 'active' if action_name == 'maps' %>"><a href="/maps">Maps</a></li>
+    <li class="<%= 'active' if action_name == 'plantlist' %>"><a href="/plant-list">Plant List</a></li>
+    <li class="<%= 'active' if action_name == 'contact' %>"><a href="/contact">Contact us</a></li>
   </ul>
 </div>
