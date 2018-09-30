@@ -27,15 +27,16 @@ namespace :deploy do
     end
   end
 
-  after :restart, :clear_cache do
+  task :sitemap do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       within release_path do
-        run "RAILS_ENV=#{rails_env} rake sitemap:generate"
+        execute :rake, 'sitemap:generate RAILS_ENV=production'
       end
     end
   end
 
   after :finishing, 'deploy:cleanup'
+  after :finishing, 'deploy:sitemap'
   after :finishing, 'deploy:restart'
 end

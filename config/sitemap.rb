@@ -1,5 +1,4 @@
-Sitemap::Generator.instance.load host: 'redbreastplants.com.au', protocol: 'https' do
-
+Sitemap::Generator.instance.load host: 'www.redbreastplants.com.au', protocol: 'https' do
   # Sample path:
   #   path :faq
   # The specified path must exist in your routes file (usually specified through :as).

@@ -11,7 +11,9 @@ class VisitorsController < ApplicationController
   end
 
   def show_plant
-    @plant = Plant.visible.find_by(botanical_name: params[:name].titleize.camelcase)
+    @plant = Plant.visible.detect do |plant|
+      plant.botanical_name.parameterize == params[:name]
+    end
     render :plant
   end
 
