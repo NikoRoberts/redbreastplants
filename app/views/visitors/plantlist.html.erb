@@ -9,13 +9,12 @@
                     <li><a href="contact">Contact us</a></li>
     </ul>
   </div>
-        <div id="two-col" class="border" style="width:890px;">
-<h2 class="green">The Plant List</h2>
-A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
-<br>
-</div>
 
-<div style="width:890px;">
+<div id="plantlist">
+  <h1 class="green header">Native Plant List</h1>
+  <p>
+    A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
+  </p><br>
   <div class="sortable-table">
     <div>
         <form name="searchform" method="GET" action="plant-list">
@@ -63,11 +62,11 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
       <tr>
         <th style="width:110px" value="Botanical_Name" >Botanical Name</th>
         <th style="width:100px" value="Common_Name" >Common Name</th>
-        <th value="Comments" >Comments</th>
-        <th style="width:30px" value="Average_Height" >Avg. Height</th>
-        <th style="width:30px" value="Average_Width" >Avg. Width</th>
-        <th value="Flower_Colour_and_Season" >Flower &amp; Season</th>
-        <th value="Soil_Types" >Soil</th>
+        <th value="Comments" class="mobile-hide">Comments</th>
+        <th style="width:30px" value="Average_Height" class="mobile-hide">Avg. Height</th>
+        <th style="width:30px" value="Average_Width" class="mobile-hide">Avg. Width</th>
+        <th value="Flower_Colour_and_Season" class="mobile-hide">Flower &amp; Season</th>
+        <th value="Soil_Types" class="mobile-hide">Soil</th>
         <th value="photo" >Photo</th>
       </tr>
     </thead>
@@ -76,11 +75,11 @@ A comprehensive list of plants that Redbreast Plants is able to cultivate<br>
         <tr class="searchable" data-index="<%= plant.botanical_name.to_s.downcase.gsub(' ','') %> <%= plant.common_name.to_s.downcase.gsub(' ','') %> <%= plant.comments.to_s.downcase.gsub(' ','') %> <%= plant.flower_colour_and_season.to_s.downcase.gsub(' ','') %> <%= plant.soil_types.to_s.downcase.gsub(' ','') %> <%= plant.quicklist_search_string.to_s.downcase.gsub(' ','') %>">
           <td><%= plant.botanical_name %></td>
           <td><%= plant.common_name %></td>
-          <td><%= plant.comments %></td>
-          <td><%= plant.average_height %></td>
-          <td><%= plant.average_width %></td>
-          <td><%= plant.flower_colour_and_season %></td>
-          <td><%= plant.soil_types %></td>
+          <td class="mobile-hide"><%= plant.comments %></td>
+          <td class="mobile-hide"><%= plant.average_height %></td>
+          <td class="mobile-hide"><%= plant.average_width %></td>
+          <td class="mobile-hide"><%= plant.flower_colour_and_season %></td>
+          <td class="mobile-hide"><%= plant.soil_types %></td>
           <td>
             <% unless plant.photo.blank? %>
               <a class="see_photo" href="#photo" data-no-turbolinks="true" data-id="<%= plant.id %>">See Photo</a>

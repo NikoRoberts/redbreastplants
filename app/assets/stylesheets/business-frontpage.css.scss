@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-body,h1,h2,h3,h4,h5,h6,form,img,span,div,ul,li,p{margin:0px;padding:0px;border:0px}body{background:#fff;font:1.25em Helvetica;text-align:center;color:#131414}a{text-decoration:underline;color:#46710b}a:hover{text-decoration:none}.floatleft{float:left}.block{display:block}.floatright{float:right}.bold{font-weight:bold}.italic{font-style:italic}.green{color:#46710B}#centered{width:940px;margin:0
+body,h1,h2,h3,h4,h5,h6,form,img,span,div,ul,li,p{margin:0px;padding:0px;border:0px}
+body{background:#fff;font:1.25em Helvetica;text-align:center;color:#131414}
+a{text-decoration:underline;color:#46710b}a:hover{text-decoration:none}.floatleft{float:left}.block{display:block}.floatright{float:right}.bold{font-weight:bold}.italic{font-style:italic}.green{color:#46710B}#centered{width:940px;margin:0
 auto;text-align:left}#header{height:110px}ul#navigation{float:right;display:table;margin-top:48px}ul#navigation
 li{display:table-cell;padding-left:20px}ul#navigation li
 a{display:block;padding:5px
@@ -11,7 +13,7 @@ img{display:block}#banner
 .info{width:280px;height:320px;background-color: rgba(0,0,0,0.44);position:relative;top: -320px;color:#fff}#banner .info
 div{padding:35px}#banner .info div
 h1{font:1.9em Georgia;margin-bottom:10px}#banner .info div
-p{font:12px Georgia;line-height:1.8em;margin-bottom:10px}#banner .info
+p{font:1em Georgia;line-height:1.8em;margin-bottom:10px}#banner .info
 a.more{display:inline-block;padding:5px
 10px;background:#46710b;color:#fff}#portfolio{float:left;width:940px}#portfolio
 .column{width:300px;margin-right:20px;float:left;margin-bottom:20px}#portfolio
@@ -131,42 +133,94 @@ td{color:#000;padding:5px}table.tablesorter
 .headerSortDown{background-repeat:no-repeat}
 
 .suggestionsBox {
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 11px;
-            color: #000;
-            position: absolute;
-            left: 20px;
-            margin: 0px 0px 0px 0px;
-            width: 200px;
-            background-color: #fff;
-            -moz-border-radius: 7px;
-            -webkit-border-radius: 7px;
-            border: 2px solid #446F0B;
-            color: #666;
-    }
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        color: #000;
+        position: absolute;
+        left: 20px;
+        margin: 0px 0px 0px 0px;
+        width: 200px;
+        background-color: #fff;
+        -moz-border-radius: 7px;
+        -webkit-border-radius: 7px;
+        border: 2px solid #446F0B;
+        color: #666;
+}
 
-    .suggestionList {
-        margin: 0px;
-        padding: 0px;
-                list-style: none;
-    }
+.suggestionList {
+    margin: 0px;
+    padding: 0px;
+            list-style: none;
+}
 
-    .sgst-li {
+.sgst-li {
 
-        margin: 0px 0px 7px 0px;
+    margin: 0px 0px 7px 0px;
+    padding: 3px;
+    cursor: pointer;
+}
+.sgst-li:hover {
+      background-color:#DDD;
+}
+.liheader {
+margin: 0px 0px 3px 0px;
+        cursor: auto;
+        font-size: 14px;
         padding: 3px;
-        cursor: pointer;
+        font-weight: 700;
+}
+h1{ font:1.9em Georgia;margin-bottom:10px }
+#search {
+    color: #999;
+}
+#plantlist {
+  width: 890px;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    font-size: 1.5em;
+  }
+  #centered {
+    width: 100%;
+  }
+  ul#navigation {
+    margin-top: 0;
+    padding: 0;
+  }
+  #banner, #banner .info {
+    width: 100%;
+  }
+  #two-col {
+    #left {
+      width: 100%;
+      box-sizing: border-box;
+      float: none;
+      padding: 1em;
+      margin: 0;
     }
-    .sgst-li:hover {
-            background-color:#DDD;
+    #right {
+      width: 100%;
+      box-sizing: border-box;
+      float: none;
+      padding: 1em;
+      margin: 0;
     }
-        .liheader {
-        margin: 0px 0px 3px 0px;
-                cursor: auto;
-                font-size: 14px;
-                padding: 3px;
-                font-weight: 700;
-        }
-        #search {
-            color: #999;
-        }
+  }
+  #four-col {
+    margin-left: 16px;
+    margin-top: 20px;
+    a {
+      display: block;
+      text-align: center;
+    }
+  }
+  #plantlist {
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px;
+  }
+  .mobile-hide {
+    display: none;
+  }
+}
