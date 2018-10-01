@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'sessions#failure'
 
   # key term landing pages
-  get '/australian-native-plant-nursery-near-hobart', to: 'visitors#hobart'
-  get '/australian-native-plant-tubestock', to: 'visitors#tubestock'
+  get '/australian-native-plant-nursery-near-hobart', to: 'visitors#hobart', as: :hobart
+  get '/australian-native-plant-tubestock', to: 'visitors#tubestock', as: :tubestock
 
   # PHP redirects
   get 'index.php' => redirect('/')
