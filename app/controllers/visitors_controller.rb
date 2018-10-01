@@ -11,11 +11,15 @@ class VisitorsController < ApplicationController
   end
 
   def show_plant
-    @plant = Plant.detect do |plant|
+    @plant = Plant.all.detect do |plant|
       plant.slug == params[:name]
     end
     render :plant
   end
+
+  def tubestock; end
+
+  def hobart; end
 
   def plantlist
     @plants = Plant.visible

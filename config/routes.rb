@@ -16,6 +16,11 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new', :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
+
+  # key term landing pages
+  get '/australian-native-plant-nursery-near-hobart', to: 'visitors#hobart'
+  get '/australian-native-plant-tubestock', to: 'visitors#tubestock'
+
   # PHP redirects
   get 'index.php' => redirect('/')
   get 'about-us.php' => redirect('/about-us')

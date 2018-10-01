@@ -29,6 +29,9 @@ Sitemap::Generator.instance.load host: 'www.redbreastplants.com.au', protocol: '
   path :contact, priority: 0.5, change_frequency: 'weekly'
   path :plant_list, priority: 0.5, change_frequency: 'weekly'
   path :maps, priority: 0.5, change_frequency: 'weekly'
+  path :hobart, priority: 0.5, change_frequency: 'weekly'
+  path :tubestock, priority: 0.5, change_frequency: 'weekly'
+
   Plant.all.each do |plant|
     literal plant.url, priority: 0.5, change_frequency: 'weekly'
   end

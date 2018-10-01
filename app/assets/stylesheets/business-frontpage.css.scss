@@ -177,6 +177,14 @@ h1{ font:1.9em Georgia;margin-bottom:10px }
   width: 890px;
 }
 
+.tubestockbg {
+  display: inline-block;
+  width: 100%;
+  height: 50vh;
+  background-position: center;
+  background-size: cover;
+}
+
 @media only screen and (max-width: 800px) {
   body {
     font-size: 1.5em;
@@ -211,6 +219,13 @@ h1{ font:1.9em Georgia;margin-bottom:10px }
     display: block;
     width: 100%;
     height: 320px;
+  }
+  #one-col {
+    .column {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 30px 10px;
+    }
   }
   #two-col {
     #left {

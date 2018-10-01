@@ -1,6 +1,7 @@
+<% content_for :title, "#{@plant.botanical_name} - #{@plant.common_name} - Australian Native Plant" %>
 <div id="centered" class="border">
   <div id="plantlist">
-    <h1 class="green header"><%= @plant.botanical_name %> <%= @plant.common_name %></h1>
+    <h1 class="green header"><%= @plant.botanical_name %> - <%= @plant.common_name %></h1>
     <% unless @plant.photo.blank? %>
       <img src="data:img/gif;base64,<%= @plant.photo %>" style="max-width: 100%">
     <% end %>

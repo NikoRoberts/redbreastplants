@@ -9,8 +9,7 @@ class PlantsController < ApplicationController
   # POST /update_plant
   # POST /update_plant.json
   def update_plant
-    @plant = Plant.new if @plant.nil? # only create a new after auth
-    @plant.assign deleted: true
+    @plant.deleted = false
 
     respond_to do |format|
       if set_attributes_from_filemaker(@plant)
@@ -74,17 +73,16 @@ class PlantsController < ApplicationController
   def find_bot_plant
     names = params[:bot_name].split("\r").reject(&:blank?).map(&:strip)
     matches = Plant.where('botanical_name ILIKE :name OR :name = ANY(alternative_names)', name: names.first)
-    @plant = Plant.find(matches.first&.id)
+    @plant = matches.first
+    @plant = Plant.new(botanical_name: params[:bot_name]) if @plant.nil?
     update_bot_name(@plant, names)
   end
 
   def update_bot_name(plant, names)
     return if names.size < 2
     return if plant.botanical_name == names.first && plant.alternative_names == names[1..names.length]
-    plant.update(
-      botanical_name: names.first,
-      alternative_names: names | plant.alternative_names.to_a
-    )
+    plant.botanical_name = names.first
+    plant.alternative_names = names | plant.alternative_names.to_a
   end
 
   def set_attributes_from_filemaker(plant)
