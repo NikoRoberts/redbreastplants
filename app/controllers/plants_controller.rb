@@ -5,40 +5,6 @@ class PlantsController < ApplicationController
   before_action :set_plant, :admin_access?, only: %i[show edit update destroy]
   before_action :find_bot_plant, only: %i[update_plant remove_plant]
 
-  # GET /plants
-  # GET /plants.json
-  def index
-    @plants = Plant.all
-  end
-
-  # GET /plants/1
-  # GET /plants/1.json
-  def show; end
-
-  # GET /plants/new
-  def new
-    @plant = Plant.new
-  end
-
-  # GET /plants/1/edit
-  def edit; end
-
-  # POST /plants
-  # POST /plants.json
-  def create
-    @plant = Plant.new(plant_params)
-
-    respond_to do |format|
-      if @plant.save
-        format.html { redirect_to @plant, notice: 'Plant was successfully created.' }
-        format.json { render :show, status: :created, location: @plant }
-      else
-        format.html { render :new }
-        format.json { render json: @plant.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # POST /update_plant
   # POST /update_plant.json
   def update_plant
@@ -61,30 +27,6 @@ class PlantsController < ApplicationController
       else
         format.json { render json: @plant.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /plants/1
-  # PATCH/PUT /plants/1.json
-  def update
-    respond_to do |format|
-      if @plant.update(plant_params)
-        format.html { redirect_to @plant, notice: 'Plant was successfully updated.' }
-        format.json { render :show, status: :ok, location: @plant }
-      else
-        format.html { render :edit }
-        format.json { render json: @plant.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /plants/1
-  # DELETE /plants/1.json
-  def destroy
-    @plant.destroy
-    respond_to do |format|
-      format.html { redirect_to plants_url, notice: 'Plant was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -113,7 +55,19 @@ class PlantsController < ApplicationController
   end
 
   def find_bot_plant
-    @plant = Plant.find_or_create_by(botanical_name: params[:bot_name])
+    names = params[:bot_name].split("\r").reject(&:blank?).map(&:strip)
+    matches = Plant.where('botanical_name ILIKE :name OR :name = ANY(alternative_names)', name: names.first)
+    @plant = Plant.find(matches.first&.id)
+    update_bot_name(@plant, names)
+  end
+
+  def update_bot_name(plant, names)
+    return if names.size < 2
+    return if plant.botanical_name == names.first && plant.alternative_names == names[1..names.length]
+    plant.update(
+      botanical_name: names.first,
+      alternative_names: names[1..names.length] | plant.alternative_names | [plant.botanical_name]
+    )
   end
 
   def set_attributes_from_filemaker(plant)

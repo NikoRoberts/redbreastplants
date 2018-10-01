@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/redbreast_admin', as: 'rails_admin'
-  resources :plants
   root to: 'visitors#index'
   get '/about-us' => 'visitors#about'
   post '/send_contact' => 'visitors#send_contact'
