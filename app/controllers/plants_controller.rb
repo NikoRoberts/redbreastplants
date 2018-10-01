@@ -17,7 +17,8 @@ class PlantsController < ApplicationController
                    id: @plant.id,
                    botanical_name: @plant.botanical_name,
                    alternative_names: @plant.alternative_names,
-                   updated_at: @plant.updated_at
+                   updated_at: @plant.updated_at,
+                   visible: (!@plant.deleted).to_s
                  }
         }
       else
