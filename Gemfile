@@ -8,9 +8,9 @@ gem 'jquery-rails'
 gem 'rails', '~> 5.2.0'
 gem 'rails_admin'
 gem 'sass-rails'
+gem 'sitemap'
 gem 'turbolinks'
 gem 'uglifier'
-gem 'sitemap'
 
 group :development, :test do
   gem 'byebug'

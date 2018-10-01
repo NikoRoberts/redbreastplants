@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Sitemap::Generator.instance.load host: 'www.redbreastplants.com.au', protocol: 'https' do
   # Sample path:
   #   path :faq

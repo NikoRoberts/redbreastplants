@@ -53,10 +53,12 @@
 #  deleted                              :boolean          default(FALSE)
 #  created_at                           :datetime         not null
 #  updated_at                           :datetime         not null
+#  alternative_names                    :string           is an Array
 #
 # Indexes
 #
-#  index_plants_on_botanical_name  (botanical_name)
+#  index_plants_on_alternative_names  (alternative_names)
+#  index_plants_on_botanical_name     (botanical_name)
 #
 
 class Plant < ApplicationRecord
