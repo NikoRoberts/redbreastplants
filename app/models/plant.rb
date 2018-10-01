@@ -70,7 +70,7 @@ class Plant < ApplicationRecord
   end
 
   def url
-    'australian-natives/' + slug
+    '/australian-natives/' + slug
   end
 
   def quicklist_search_string
