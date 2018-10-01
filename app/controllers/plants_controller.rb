@@ -66,7 +66,7 @@ class PlantsController < ApplicationController
     return if plant.botanical_name == names.first && plant.alternative_names == names[1..names.length]
     plant.update(
       botanical_name: names.first,
-      alternative_names: names[1..names.length] | plant.alternative_names | [plant.botanical_name]
+      alternative_names: names | plant.alternative_names.to_a
     )
   end
 
