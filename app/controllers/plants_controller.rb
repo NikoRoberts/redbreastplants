@@ -11,7 +11,15 @@ class PlantsController < ApplicationController
     render_empty unless auth_key_provided?
     respond_to do |format|
       if set_attributes_from_filemaker(@plant)
-        format.json { render :show, status: :created, location: @plant }
+        format.json {
+          render status: :created,
+                 json: {
+                   id: @plant.id,
+                   botanical_name: @plant.botanical_name,
+                   alternative_names: @plant.alternative_names,
+                   updated_at: @plant.updated_at
+                 }
+        }
       else
         format.json { render json: @plant.errors, status: :unprocessable_entity }
       end
