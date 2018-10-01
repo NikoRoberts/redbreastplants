@@ -65,6 +65,14 @@ class Plant < ApplicationRecord
   validates :botanical_name, presence: true, uniqueness: true
   scope :visible, -> { where(deleted: false).order(:botanical_name) }
 
+  def slug
+    botanical_name.parameterize
+  end
+
+  def url
+    'australian-natives/' + slug
+  end
+
   def quicklist_search_string
     ql = ''
     ql += ' e_for_endemic' if e_for_endemic.present?

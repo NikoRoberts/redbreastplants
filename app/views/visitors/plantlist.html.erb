@@ -59,7 +59,7 @@
     <tbody>
       <% @plants.each do |plant| %>
         <tr class="searchable" data-index="<%= plant.botanical_name.to_s.downcase.gsub(' ','') %> <%= plant.common_name.to_s.downcase.gsub(' ','') %> <%= plant.comments.to_s.downcase.gsub(' ','') %> <%= plant.flower_colour_and_season.to_s.downcase.gsub(' ','') %> <%= plant.soil_types.to_s.downcase.gsub(' ','') %> <%= plant.quicklist_search_string.to_s.downcase.gsub(' ','') %>">
-          <td><%= plant.botanical_name %></td>
+          <td><a href="<%= plant.url %>"><%= plant.botanical_name %></a></td>
           <td><%= plant.common_name %></td>
           <td class="mobile-hide"><%= plant.comments %></td>
           <td class="mobile-hide"><%= plant.average_height %></td>

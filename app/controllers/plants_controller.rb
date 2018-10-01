@@ -2,16 +2,19 @@
 
 class PlantsController < ApplicationController
   protect_from_forgery with: :exception, unless: proc { |c| c.request.format == 'application/json' }
+  before_action :check_auth_key
   before_action :set_plant, :admin_access?, only: %i[show edit update destroy]
   before_action :find_bot_plant, only: %i[update_plant remove_plant]
 
   # POST /update_plant
   # POST /update_plant.json
   def update_plant
-    render_empty unless auth_key_provided?
+    @plant = Plant.new if @plant.nil? # only create a new after auth
+    @plant.assign deleted: true
+
     respond_to do |format|
       if set_attributes_from_filemaker(@plant)
-        format.json {
+        format.json do
           render status: :created,
                  json: {
                    id: @plant.id,
@@ -20,16 +23,17 @@ class PlantsController < ApplicationController
                    updated_at: @plant.updated_at,
                    visible: (!@plant.deleted).to_s
                  }
-        }
+        end
       else
-        format.json { render json: @plant.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @plant.errors, status: :unprocessable_entity
+        end
       end
     end
   end
 
   # POST /remove_plant.json
   def remove_plant
-    render_empty unless auth_key_provided?
     respond_to do |format|
       if @plant.update(deleted: true)
         format.json { render :show, status: :created, location: @plant }
@@ -40,6 +44,10 @@ class PlantsController < ApplicationController
   end
 
   private
+
+  def check_auth_key
+    raise ActionController::RoutingError, params[:path] unless auth_key_provided?
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_plant

@@ -30,6 +30,6 @@ Sitemap::Generator.instance.load host: 'www.redbreastplants.com.au', protocol: '
   path :plant_list, priority: 0.5, change_frequency: 'weekly'
   path :maps, priority: 0.5, change_frequency: 'weekly'
   Plant.all.each do |plant|
-    literal '/australian-natives/' + plant.botanical_name.parameterize, priority: 0.5, change_frequency: 'weekly'
+    literal plant.url, priority: 0.5, change_frequency: 'weekly'
   end
 end

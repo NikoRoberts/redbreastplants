@@ -11,8 +11,8 @@ class VisitorsController < ApplicationController
   end
 
   def show_plant
-    @plant = Plant.visible.detect do |plant|
-      plant.botanical_name.parameterize == params[:name]
+    @plant = Plant.detect do |plant|
+      plant.slug == params[:name]
     end
     render :plant
   end
