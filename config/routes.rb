@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   get 'contact.php' => redirect('/contact')
 
   # Single plant pages
+  get 'plant-image/(*name)', to: 'visitors#plant_image'
   get 'australian-natives/(*name)', to: 'visitors#show_plant'
 end

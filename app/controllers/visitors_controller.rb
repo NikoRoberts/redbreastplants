@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class VisitorsController < ApplicationController
+  before_action :find_plant_by_slug, only: [:show_plant, :plant_image]
   def about; end
 
   def maps; end
@@ -11,10 +12,13 @@ class VisitorsController < ApplicationController
   end
 
   def show_plant
-    @plant = Plant.all.detect do |plant|
-      plant.slug == params[:name]
-    end
     render :plant
+  end
+
+  def plant_image
+    respond_to do |format|
+      format.gif { render plain: Base64.decode64(@plant.photo), content_type: 'image/gif' }
+    end
   end
 
   def tubestock; end
@@ -33,5 +37,13 @@ class VisitorsController < ApplicationController
     # send the email
     ContactMailer.notify_about_contact(params[:name], params[:email_address], params[:telephone], params[:message]).deliver_now
     redirect_to contact_url, notice: 'Message sent successfully'
+  end
+
+  private
+
+  def find_plant_by_slug
+    @plant = Plant.all.detect do |plant|
+      plant.slug == params[:name]
+    end
   end
 end

@@ -3,7 +3,7 @@
   <div id="plantlist">
     <h1 class="green header"><%= @plant.botanical_name %> - <%= @plant.common_name %></h1>
     <% unless @plant.photo.blank? %>
-      <img src="data:img/gif;base64,<%= @plant.photo %>" style="max-width: 100%">
+      <img src="/plant-image/<%= @plant.slug %>.gif" alt="<%= @plant.botanical_name %> - <%= @plant.common_name %>">
     <% end %>
     <br>
     <table class="table table-striped table-bordered table-hover">
