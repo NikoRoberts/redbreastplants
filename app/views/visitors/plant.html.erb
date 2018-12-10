@@ -5,6 +5,7 @@
     <% unless @plant.photo.blank? %>
       <img src="data:img/gif;base64,<%= @plant.photo %>" style="max-width: 100%">
     <% end %>
+    <br>
     <table class="table table-striped table-bordered table-hover">
       <thead>
         <tr>
@@ -31,5 +32,7 @@
           </tr>
       </tbody>
     </table>
+    <br>
+    <p><a href="http://www.redbreastplants.com.au/contact">Please contact the Margate nursery or the Flowerdale nursery</a> to find out if we have any <%= @plant.botanical_name %> in stock.</p>
   </div>
 </div>
