@@ -36,3 +36,28 @@
     <p><a href="http://www.redbreastplants.com.au/contact">Please contact the Margate nursery or the Flowerdale nursery</a> to find out if we have any <%= @plant.botanical_name %> in stock.</p>
   </div>
 </div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "<%= @plant.botanical_name %> - <%= @plant.common_name %>",
+  "image": [
+    "https://www.redbreastplants.com.au/plant-image/<%= @plant.slug %>.gif"
+   ],
+  "description": "<%= @plant.comments %>",
+  "brand": {
+    "@type": "Brand",
+    "name": "Redbreast Plants"
+  },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "AUD",
+    "price": "9",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Redbreast Plants"
+    }
+  }
+}
+</script>
