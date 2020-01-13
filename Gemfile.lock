@@ -53,7 +53,7 @@ GEM
     ast (2.4.0)
     autoprefixer-rails (9.5.1)
       execjs
-    better_errors (2.5.0)
+    better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
@@ -256,7 +256,7 @@ GEM
       interception (>= 0.5)
       pry (>= 0.12.0)
     public_suffix (4.0.3)
-    rack (2.1.0)
+    rack (2.1.1)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
       rack (>= 1.1)
