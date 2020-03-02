@@ -16,7 +16,6 @@
           <th style="width:30px" value="Average_Width" class="mobile-hide">Avg. Width</th>
           <th value="Flower_Colour_and_Season" class="mobile-hide">Flower &amp; Season</th>
           <th value="Soil_Types" class="mobile-hide">Soil</th>
-          <th value="photo" >Photo</th>
         </tr>
       </thead>
       <tbody>
@@ -28,12 +27,14 @@
             <td class="mobile-hide"><%= @plant.average_width %></td>
             <td class="mobile-hide"><%= @plant.flower_colour_and_season %></td>
             <td class="mobile-hide"><%= @plant.soil_types %></td>
-            <td></td>
           </tr>
       </tbody>
     </table>
     <br>
-    <p><a href="http://www.redbreastplants.com.au/contact">Please contact the Margate nursery or the Flowerdale nursery</a> to find out if we have any <%= @plant.botanical_name %> in stock.</p>
+    <p>To buy <%= @plant.botanical_name %> / <%= @plant.common_name %> you should <a href="http://www.redbreastplants.com.au/contact">contact a Redbreast Plants nursery</a> near you.</p>
+    <br>
+    <br>
+    <br>
   </div>
 </div>
 <script type="application/ld+json">
