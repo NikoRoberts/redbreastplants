@@ -21,6 +21,8 @@ module Redbreast
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
+    config.middleware.use ActionDispatch::Session::CookieStore, { key: "_redbreast_session", cookie_only: true }
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
