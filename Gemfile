@@ -17,7 +17,7 @@ group :development, :test do
 end
 group :development do
   gem 'spring'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.7'
 end
 gem 'bootstrap-sass'
 gem 'haml-rails'
