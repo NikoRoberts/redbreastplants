@@ -52,7 +52,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 0.83.0'
+  gem 'rubocop', '~> 0.91.0'
   gem 'thin'
 end
 group :production do
