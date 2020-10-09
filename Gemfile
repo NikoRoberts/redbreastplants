@@ -11,6 +11,9 @@ gem 'sass-rails'
 gem 'sitemap'
 gem 'turbolinks'
 gem 'uglifier'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
+
 
 group :development, :test do
   gem 'byebug'
