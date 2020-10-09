@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 set :stage, :production
-set :rvm_ruby_version, '2.4.4' # Defaults to: 'default'
+set :rvm_ruby_version, '2.7.2' # Defaults to: 'default'
 
 # Simple Role Syntax
 # ==================
