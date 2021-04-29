@@ -1,0 +1,35 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: rubocop
+    versions:
+    - 1.10.0
+    - 1.11.0
+    - 1.12.0
+    - 1.12.1
+  - dependency-name: capistrano
+    versions:
+    - 3.15.0
+  - dependency-name: omniauth-auth0
+    versions:
+    - 2.5.0
+  - dependency-name: capybara
+    versions:
+    - 3.35.1
+  - dependency-name: nokogiri
+    versions:
+    - 1.11.1
+  - dependency-name: faker
+    versions:
+    - 2.15.1
+  - dependency-name: passenger
+    versions:
+    - 6.0.7
+  - dependency-name: rails
+    versions:
+    - 6.0.3.4
