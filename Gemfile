@@ -5,7 +5,7 @@ gem 'coffee-rails'
 gem 'dotenv-rails'
 gem 'jbuilder'
 gem 'jquery-rails'
-gem 'rails', '~> 6.0.3'
+gem 'rails'
 gem 'rails_admin'
 gem 'sass-rails'
 gem 'sitemap'
@@ -13,21 +13,20 @@ gem 'turbolinks'
 gem 'uglifier'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
-
+gem 'sqlite3'
 
 group :development, :test do
   gem 'byebug'
 end
 group :development do
   gem 'spring'
-  gem 'web-console', '~> 3.7'
+  gem 'web-console'
 end
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'omniauth'
 gem 'omniauth-auth0'
-gem 'pg'
 gem 'simple_form'
 group :development do
   gem 'annotate'
@@ -55,12 +54,14 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
-  gem 'rubocop', '~> 1.1.0'
+  gem 'rubocop'
   gem 'thin'
 end
+
 group :production do
   gem 'passenger'
 end
+
 group :test do
   gem 'capybara'
   gem 'database_cleaner'

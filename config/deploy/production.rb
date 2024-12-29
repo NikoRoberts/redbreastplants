@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 set :stage, :production
-set :rvm_ruby_version, '2.7.2' # Defaults to: 'default'
+set :rvm_ruby_version, '3.4.1'
 
 # Simple Role Syntax
 # ==================
 # Supports bulk-adding hosts to roles, the primary
 # server in each group is considered to be the first
 # unless any hosts have the primary property set.
-role :app, %w[deployer@139.59.251.17]
-role :web, %w[deployer@139.59.251.17]
-role :db,  %w[deployer@139.59.251.17]
+role :app, %w[deployer@170.64.201.79]
+role :web, %w[deployer@170.64.201.79]
+role :db,  %w[deployer@170.64.201.79]
 
 # Extended Server Syntax
 # ======================
@@ -18,7 +18,7 @@ role :db,  %w[deployer@139.59.251.17]
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '139.59.251.17', user: 'deployer', roles: %w[web app]
+server '170.64.201.79', user: 'deployer', roles: %w[web app]
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
