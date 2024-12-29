@@ -32,12 +32,12 @@ gem 'simple_form'
 group :development do
   gem 'annotate'
   gem 'better_errors'
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rails-console'
-  gem 'capistrano-rvm'
-  gem 'capistrano3-puma', '=6.0.0.beta.1'
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano3-puma', '=6.0.0.beta.1', require: false
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
