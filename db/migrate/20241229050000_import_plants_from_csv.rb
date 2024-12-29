@@ -1,3 +1,5 @@
+require 'csv'
+
 class ImportPlantsFromCsv < ActiveRecord::Migration[7.0]
   def up
     Plant.delete_all

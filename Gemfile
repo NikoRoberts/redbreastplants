@@ -29,6 +29,8 @@ gem 'high_voltage'
 gem 'omniauth'
 gem 'omniauth-auth0'
 gem 'simple_form'
+gem 'csv'
+
 group :development do
   gem 'annotate'
   gem 'better_errors'
