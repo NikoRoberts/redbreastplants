@@ -14,7 +14,7 @@ gem 'nokogiri', platforms: :ruby
 gem 'sqlite3', platforms: :ruby
 gem 'bcrypt_pbkdf', platforms: :ruby
 gem 'ed25519', platforms: :ruby
-gem 'puma'
+gem 'puma', '>6'
 
 group :development, :test do
   gem 'byebug'
@@ -37,7 +37,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rails-console'
   gem 'capistrano-rvm'
-  gem 'capistrano3-puma'
+  gem 'capistrano3-puma', '=6.0.0.beta.1'
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
