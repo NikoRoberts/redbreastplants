@@ -6,7 +6,6 @@ gem 'dotenv-rails'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'rails'
-gem 'rails_admin'
 gem 'sass-rails'
 gem 'sitemap'
 gem 'turbolinks'
@@ -65,3 +64,4 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+gem "sassc-rails"
