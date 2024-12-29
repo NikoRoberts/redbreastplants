@@ -14,6 +14,7 @@ gem 'uglifier'
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 gem 'sqlite3'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
@@ -33,10 +34,10 @@ group :development do
   gem 'better_errors'
   gem 'capistrano'
   gem 'capistrano-bundler'
-  gem 'capistrano-passenger'
   gem 'capistrano-rails'
   gem 'capistrano-rails-console'
   gem 'capistrano-rvm'
+  gem 'capistrano3-puma'
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -55,11 +56,6 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'rubocop'
-  gem 'thin'
-end
-
-group :production do
-  gem 'passenger'
 end
 
 group :test do
