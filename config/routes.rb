@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/redbreast_admin', as: 'rails_admin'
   root to: 'visitors#index'
   get '/about-us' => 'visitors#about'
   post '/send_contact' => 'visitors#send_contact'
