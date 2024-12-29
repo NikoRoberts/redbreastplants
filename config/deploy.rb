@@ -18,6 +18,7 @@ set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 set :keep_releases, 5
 
 # disable precompiling assets as we are commmitting them
+Rake::Task["deploy:assets:backup_manifest"].clear_actions
 Rake::Task["deploy:assets:precompile"].clear_actions
 
 namespace :deploy do
