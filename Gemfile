@@ -11,9 +11,10 @@ gem 'sass-rails'
 gem 'sitemap'
 gem 'turbolinks'
 gem 'uglifier'
-gem 'ed25519'
-gem 'bcrypt_pbkdf'
-gem 'sqlite3'
+gem 'nokogiri', platforms: :ruby
+gem 'sqlite3', platforms: :ruby
+gem 'bcrypt_pbkdf', platforms: :ruby
+gem 'ed25519', platforms: :ruby
 gem 'puma'
 
 group :development, :test do

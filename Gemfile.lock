@@ -543,6 +543,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   launchy
+  nokogiri
   omniauth
   omniauth-auth0
   pry-rails
