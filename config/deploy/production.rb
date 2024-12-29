@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-set :stage, :production
+set :production
 set :rvm_ruby_version, '3.4.1'
 
 # Simple Role Syntax

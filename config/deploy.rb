@@ -12,7 +12,7 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-set :linked_files, %w[config/database.yml .env db/production.sqlite3]
+set :linked_files, %w[.env]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/images]
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
