@@ -23,5 +23,16 @@ module Redbreast
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Setup structured logging
+    config.semantic_logger.application = "redbreastplants"
+    config.semantic_logger.environment = ENV["STACK_NAME"] || Rails.env
+    config.log_level = ENV["LOG_LEVEL"] || :info
+
+    # Switch to JSON Logging output to stdout when running on Kubernetes
+    if ENV["LOG_TO_CONSOLE"] || ENV["KUBERNETES_SERVICE_HOST"]
+      config.rails_semantic_logger.add_file_appender = false
+      config.semantic_logger.add_appender(io: $stdout, formatter: :json)
+    end
   end
 end

@@ -15,6 +15,7 @@ gem 'sqlite3', platforms: :ruby
 gem 'bcrypt_pbkdf', platforms: :ruby
 gem 'ed25519', platforms: :ruby
 gem 'puma', '>6'
+gem 'rails_semantic_logger'
 
 group :development, :test do
   gem 'byebug'

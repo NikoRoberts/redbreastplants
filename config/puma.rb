@@ -22,17 +22,34 @@
 # threads. This includes Active Record's `pool` parameter in `database.yml`.
 threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
 threads threads_count, threads_count
+workers ENV.fetch("WEB_CONCURRENCY", 1)
 
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-port ENV.fetch("PORT", 3000)
+port ENV.fetch("PORT", 6759)
+
+environment ENV.fetch("RAILS_ENV", "production")
+
+app_dir = ENV.fetch("APP_DIR", "/var/www/redbreastplants.com.au")
+directory "#{app_dir}/current"
+
+shared_dir = ENV.fetch("SHARED_DIR", "#{app_dir}/shared")
+
+bind ENV.fetch("PUMA_BIND", "unix://#{shared_dir}/tmp/sockets/puma.sock")
+pidfile ENV.fetch("PUMA_PIDFILE", "#{shared_dir}/tmp/pids/puma.pid")
+state_path ENV.fetch("PUMA_STATE_PATH", "#{shared_dir}/tmp/pids/puma.state")
+
+stdout_redirect(
+  ENV.fetch("PUMA_STDOUT", "#{shared_dir}/log/puma.stdout.log"),
+  ENV.fetch("PUMA_STDERR", "#{shared_dir}/log/puma.stderr.log"),
+  true
+)
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
 
-# Specify the PID file. Defaults to tmp/pids/server.pid in development.
-# In other environments, only set the PID file if requested.
-pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
-
 quiet true
 
-port 6759
+preload_app!
+
+on_worker_boot do
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+end
