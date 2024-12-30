@@ -2,6 +2,7 @@
 
 set :production
 set :rvm_ruby_version, '3.4.1'
+set :branch, ENV['BRANCH'] if ENV['BRANCH']
 
 # Simple Role Syntax
 # ==================

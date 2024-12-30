@@ -16,12 +16,33 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4.1'
           bundler-cache: true
+
+      - name: Precompile assets
+        run: |
+          bundle exec rails assets:precompile
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Create version tag
+        run: |
+          git add public/assets
+          git commit -m "Add precompiled assets [skip ci]"
+          VERSION=$(date +%Y%m%d%H%M%S)
+          git tag v$VERSION
+          git push origin v$VERSION
+          git push origin main
+          echo "VERSION=v$VERSION" >> $GITHUB_ENV
 
       - name: Add SSH key
         env:
@@ -34,4 +55,4 @@ jobs:
 
       - name: Deploy to production
         run: |
-          bundle exec cap production deploy
+          BRANCH=${{ env.VERSION }} bundle exec cap production deploy
