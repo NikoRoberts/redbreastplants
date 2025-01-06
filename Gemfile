@@ -40,7 +40,7 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-rails-console', require: false
   gem 'capistrano-rvm', require: false
-  gem 'capistrano3-puma', '=6.0.0.beta.1', require: false
+  gem 'capistrano3-puma', '6.0.0', require: false
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
