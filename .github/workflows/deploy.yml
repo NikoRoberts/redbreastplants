@@ -22,8 +22,8 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.1'
           bundler-cache: true
+          cache-version: 20250622
 
       - name: Precompile assets
         run: |
