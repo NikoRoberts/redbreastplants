@@ -556,6 +556,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   launchy
+  net-smtp
   nokogiri
   omniauth
   omniauth-auth0
