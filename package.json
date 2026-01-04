@@ -1,0 +1,22 @@
+{
+  "name": "redbreast-worker",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker for Redbreast Plants native plant nursery",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "csv-to-json": "npx tsx scripts/csv-to-json.ts",
+    "upload-photos": "npx tsx scripts/upload-photos.ts"
+  },
+  "dependencies": {
+    "hono": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240512.0",
+    "typescript": "^5.4.0",
+    "wrangler": "^3.60.0",
+    "tsx": "^4.7.0",
+    "csv-parse": "^5.5.0"
+  }
+}

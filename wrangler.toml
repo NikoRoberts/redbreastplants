@@ -1,0 +1,19 @@
+name = "redbreast-plants"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+# account_id provided via CLOUDFLARE_ACCOUNT_ID env var in CI
+
+# Custom domain routes
+routes = [
+  { pattern = "redbreastplants.com/*", zone_name = "redbreastplants.com" },
+  { pattern = "www.redbreastplants.com/*", zone_name = "redbreastplants.com" }
+]
+
+# R2 bucket for plant photos
+[[r2_buckets]]
+binding = "PHOTOS"
+bucket_name = "redbreast-photos"
+
+# Development settings
+[dev]
+port = 8787

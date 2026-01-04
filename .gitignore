@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.wrangler/
+
+# Environment files
+.env
+.env.local
+.dev.vars
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Database files
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+*.sqlite
