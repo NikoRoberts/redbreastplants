@@ -135,7 +135,7 @@ export function layout(options: LayoutOptions): string {
         </div>
       </div>
       <div class="border-t border-green-600 mt-8 pt-6 text-center text-green-100 text-sm">
-        &copy; 2005-2025 Redbreast Plants. Tasmania only.
+        &copy; 2005-2026 Redbreast Plants. Tasmania only.
       </div>
     </div>
   </footer>
