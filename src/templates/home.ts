@@ -2,10 +2,9 @@ import { layout } from './layout';
 
 export function homePage(): string {
   const content = `
-<!-- Hero Section -->
-<div class="relative">
-  <div class="absolute inset-0">
-    <img src="/assets/images/nursery-wide.jpg" alt="Redbreast Plants Nursery Tasmania" class="w-full h-full object-cover">
+<!-- Hero Section with Parallax -->
+<div class="relative min-h-[70vh] flex items-center overflow-hidden">
+  <div class="absolute inset-0 bg-fixed bg-center bg-cover" style="background-image: url('/assets/images/nursery-wide.jpg');">
     <div class="absolute inset-0 bg-black/40"></div>
   </div>
   <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
